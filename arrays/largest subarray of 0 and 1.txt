@@ -1,0 +1,31 @@
+argest subarray of o an 1 
+can't understand qn or qn wrong,,,
+
+mysoln:
+  // Your code here
+        int one=0;
+        int zero=0;
+        for(int i=0;i<N;i++)
+        {
+            if(arr[i]==1)
+            {
+                one++;
+            }
+            else{
+                zero++;
+            }
+        }
+        // System.out.println(one);
+        // System.out.println(zero);
+        if(one==zero)
+        {
+            return N;
+        }
+        if(one>zero)
+        {
+            return zero*2;
+        }
+        else
+        {
+            return one*2;
+        }

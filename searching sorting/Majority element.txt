@@ -1,0 +1,68 @@
+my soln:hashed it
+
+
+moores electing algorithm
+
+
+
+class Majority
+{
+    static int majorityElement(int a[], int n)
+    {
+        // your code here
+        if(n==1)
+        {
+            return a[0];
+        }
+        HashMap <Integer,Integer> hm = new HashMap <Integer,Integer>();
+        int max=0;
+        int ele=0;
+        for(int i=0;i<n;i++)
+        {
+            if(hm.containsKey(a[i]))
+            {
+                hm.put(a[i],hm.get(a[i])+1);
+                if(hm.get(a[i])>max)
+                {
+                    max=hm.get(a[i]);
+                    ele=a[i];
+                }
+            }
+            else
+            {
+                hm.put(a[i],1);
+                if(ele==0)
+                {
+                    ele=a[i];
+                }
+            }
+        }
+        if(max>n/2)
+        {
+            return ele;
+        }
+        return -1;
+    }
+}
+
+
+gfg soln:
+moores voting algorithm
+
+
+int findCandidate(int a[], int size)
+{
+    int maj_index = 0, count = 1;
+    int i;
+    for (i = 1; i < size; i++) {
+        if (a[maj_index] == a[i])
+            count++;
+        else
+            count--;
+        if (count == 0) {
+            maj_index = i;
+            count = 1;
+        }
+    }
+    return a[maj_index];
+}

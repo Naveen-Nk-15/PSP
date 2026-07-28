@@ -1,0 +1,59 @@
+
+max sum path in two arrays
+
+my soln:used hint
+
+class GfG
+{
+    /*You are required to complete this method
+    * ar1 : 1st array
+    * ar2 : 2nd array
+    */
+    int maxPathSum(int ar1[], int ar2[])
+    {
+        // Your code here
+        int i=0,j=0;
+        int sum1=0,sum2=0,result=0;
+        int n1=ar1.length,n2=ar2.length;
+        while(i<n1 && j<n2)
+        {
+             if(ar1[i] < ar2[j])
+				sum1 += ar1[i++];
+				
+			else if(ar1[i] > ar2[j])
+				sum2 += ar2[j++];  
+				
+				
+				
+                // if(ar1[i]==ar2[j])
+                else
+                {
+                    result = result + Integer.max(sum1,sum2);
+                    sum1=0;sum2=0;
+                
+                    while(i<n1 && j<n2 && ar1[i]==ar2[j])
+                    {
+                        result+=ar1[i++];
+                        j++;
+                    }
+                }
+                // sum2=sum2+ar2[j++];
+                
+                // sum1=sum1+ar1[i++];
+              
+
+        }
+       
+
+        while(i<n1)
+        {
+            sum1=sum1+ar1[i++];
+        }
+        while(j<n2)
+        {
+            sum2=sum2+ar2[j++];
+        }
+        result = result + Integer.max(sum1,sum2);
+        return result;
+    }
+}

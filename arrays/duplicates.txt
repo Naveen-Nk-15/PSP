@@ -1,0 +1,19 @@
+duplicate
+time complexit o(n)
+used hint 
+my soln
+def duplicates(arr, n): 
+	
+    for i in range(n):
+        index=arr[i]%n
+        arr[index] +=n
+    li=[]
+	flag=False
+    for i in range(n):
+        if arr[i]//n > 1:
+            li.append(i)
+            flag=True
+    if flag==False:
+        li.append(-1)
+    return li
+  

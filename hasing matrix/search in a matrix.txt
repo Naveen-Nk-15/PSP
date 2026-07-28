@@ -1,0 +1,43 @@
+my soln:not optimised
+class Sol
+{
+    public static int matSearch(int a[][], int n, int m, int x)
+    {
+        // your code here
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(a[i][j]==x)
+                {
+                    return 1;
+                }
+            }
+        }
+        return 0;
+    }
+}\\
+
+
+optimmised soln
+
+class Sol
+{
+    public static int matSearch(int mat[][], int n, int m, int x)
+    {
+        int i = 0, j = m-1; //set indexes for t+op right element
+        while ( i < n && j >= 0 )
+        {
+            if( mat[i][j] == x )
+            {
+                return 1;
+            }
+            if(mat[i][j] > x)
+                j--;
+            else            //  if mat[i][j] < x
+                i++;
+        }
+ 
+       return 0;
+    }
+}

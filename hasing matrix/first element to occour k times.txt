@@ -1,0 +1,60 @@
+time limit exceeded 
+
+same logic as in answer but time exceeded dono maybe input reading but works perfect
+
+my soln
+
+
+
+
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		for(int ii=0;ii<n;ii++)
+		{
+		    HashMap <Integer,Integer> hm = new HashMap<Integer,Integer>();
+		    int k = in.nextInt();
+		    int x = in.nextInt();
+		    int f = 0;
+		    int a[]= new int[k];
+		    for(int i=0;i<k;i++)
+		    {
+		        a[i]=in.nextInt();
+		        if(!hm.containsKey(a[i]))
+		        {
+		            hm.put(a[i],1);
+		        }
+		        else
+		        {
+		            hm.put(a[i],hm.get(a[i])+1);
+		        }
+		    }
+		  //  for(int i=0;i<k;i++)
+		  //  {
+		        
+		  //  }
+		    for(int i=0;i<k;i++)
+		    {
+		      //  System.out.println(hm.get(a[i]));
+		        if(hm.get(a[i])==x)
+		        {
+		            System.out.println(a[i]);
+		            f=1;
+		            break;
+		        }
+		    }
+		    if(f==0)
+		    {
+		        System.out.println(-1);
+		    }
+		}
+	}
+}

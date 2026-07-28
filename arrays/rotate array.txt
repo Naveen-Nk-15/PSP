@@ -1,0 +1,28 @@
+rotate array
+no hint my code:
+
+#include <stdio.h>
+
+int main() {
+	//code
+	int n;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{
+	    int k,rotate;
+	    scanf("%d %d",&k,&rotate);
+	    int a[k];
+	    for(int j=0;j<k;j++)
+	    {
+	        scanf("%d",&a[j]);
+	    }
+	    for(int j=0;j<k;j++)
+	    {
+	        printf("%d ",a[rotate%k]);
+	        rotate++;
+	    }
+	    
+	    printf("\n");
+	}
+	return 0;
+}

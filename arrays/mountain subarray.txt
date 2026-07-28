@@ -1,0 +1,48 @@
+mountain subarray 
+copied just learned
+
+
+
+
+public ArrayList<Boolean> processQueries(int[] a, int n, ArrayList<Pair> queries,
+                                      int q) {
+        int[] left = new int[n];
+        int[] right = new int[n];
+        preProcess(a, n, left, right);
+        ArrayList<Boolean> v = new ArrayList<Boolean>();
+        for (int i = 0; i < q; i++) {
+            v.add(isSubarrayMountainForm(left, right, queries.get(i).l,
+                                         queries.get(i).r));
+        }
+        return v;
+    }
+    public void preProcess(int[] arr, int n, int[] left, int[] right) {
+        //  initialize first left index as that index only
+        left[0] = 0;
+        int lastIncr = 0;
+
+        for (int i = 1; i < n; i++) {
+            // if current value is greater than previous,
+            // update last increasing
+            if (arr[i] > arr[i - 1]) lastIncr = i;
+            left[i] = lastIncr;
+        }
+
+        //  initialize last right index as that index only
+        right[n - 1] = n - 1;
+        int firstDecr = n - 1;
+
+        for (int i = n - 2; i >= 0; i--) {
+            // if current value is greater than next,
+            // update first decreasing
+            if (arr[i] > arr[i + 1]) firstDecr = i;
+            right[i] = firstDecr;
+        }
+    }
+    //  method returns true if arr[L..R] is in mountain form
+    boolean isSubarrayMountainForm(int[] left, int[] right, int l, int r) {
+        // return true only if right at starting range is
+        // greater than left at ending range
+        if (right[l] >= left[r]) return true;
+        return false;
+    }

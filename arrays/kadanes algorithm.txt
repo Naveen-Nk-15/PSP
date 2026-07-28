@@ -1,0 +1,30 @@
+kadane's algorithm
+my soln 
+used hint
+ int k=0;
+        int max=0;
+        int sum=0;
+        int flag=1;
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]==0)
+            {
+                flag=0;
+            }
+            k=k+arr[i];
+            sum=sum+arr[i];
+            if(sum<0)
+            {
+                sum=0;
+            }
+            if(max<sum)
+            {
+                max=sum;
+            }
+        }
+        if(k<0&&max==0&&flag==1)
+        {
+            return -1;
+        }
+        return max;
+            

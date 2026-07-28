@@ -1,0 +1,33 @@
+third largest element
+mysoln: no hint used
+class GfG
+{
+    int thirdLargest(int a[], int n)
+    {
+	    // Your code here
+	    if(n<3)
+	    {
+	        return -1;
+	    }
+	    int lar=0,slar=0,tlar=0;
+	    for(int i=0;i<n;i++)
+	    {
+	        if(a[i]>lar)
+	        {
+	            tlar=slar;
+	            slar=lar;
+	            lar=a[i];
+	        }
+	        else if(a[i]>slar)
+	        {
+	            tlar=slar;
+	            slar=a[i];
+	        }
+	        else if(a[i]>tlar)
+	        {
+	            tlar=a[i];
+	        }
+	    }
+	    return tlar;
+    }
+}

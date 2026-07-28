@@ -1,0 +1,30 @@
+replace all 0's with 5
+no hint used own slution
+
+class GfG {
+    int convertfive(int num) {
+        // Your code here
+        int n=num,k,i=0,res=0;
+        while(n>0)
+        {
+            k=n%10;
+            if(k==0)
+            {
+                k=k+5;
+            }
+            res=k+res*10;
+            i++;
+            n=n/10;
+        }
+        n=res;i=0;
+        res=0;
+        while(n>0)
+        {
+            k=n%10;
+            res=k+res*10;
+            i++;
+            n=n/10;
+        }
+        return res;
+    }
+}

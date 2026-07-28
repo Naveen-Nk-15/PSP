@@ -1,0 +1,23 @@
+Binary search my code
+as same as gfg
+int bin_search(int a[], int left, int right,  int k)
+	{
+		// Your code here
+		if(left<=right)
+		{
+		    	int mid = (left+right) / 2;
+    			if (a[mid] == k)
+    			{
+    			    return mid;
+    			}
+    			else if(a[mid]>k)
+    			{
+    		    		return bin_search(a,left,mid-1,k);
+    			}
+    			if(a[mid]<k)
+    			{
+    		    		return bin_search(a,mid+1,right,k);
+    			}    
+		}
+		return -1;
+	}

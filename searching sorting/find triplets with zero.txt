@@ -1,0 +1,46 @@
+find triplets with zero sum
+
+my soln:
+
+
+class Triplet
+{
+    // Function to check if triplet is present 
+    // arr[]: input array
+    // n: size of the array
+	public boolean findTriplets(int arr[] , int n)
+    {
+        //add code here.
+        Arrays.sort(arr);
+        // HashSet<Integer> hm = new HashSet<Integer>();
+        for(int i=0;i<n-2;i++)
+        {
+            // hm.add(arr[i]);
+            int r = n-1;
+            int l = i+1;
+            while(l<r)
+            {
+            
+                int sum=arr[l]+arr[r];
+                // System.out.println(sum +" here "+arr[i]);
+                // if(r!=i)
+                // {
+                    if(arr[i]+sum==0 )
+                    {
+                        return true;
+                    }   
+                // }
+               
+                if(arr[i]+sum>0)
+                {
+                    r--;
+                }
+                else
+                {
+                    l++;
+                }
+            }
+        }
+        return false;
+    }
+}

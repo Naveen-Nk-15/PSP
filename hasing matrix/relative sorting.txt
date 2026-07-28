@@ -1,0 +1,61 @@
+Relative sorting
+
+my soln:all condition satisfied
+
+
+
+public static void sortA1ByA2(int A1[], int n, int A2[], int m)
+{
+    //Your code here
+    HashMap <Integer,Integer> hm = new HashMap<Integer,Integer>();
+    HashMap <Integer,Integer> hm1 = new HashMap<Integer,Integer>();
+    
+    for (int i=0;i<n;i++)
+    {
+        if(hm.containsKey(A1[i]))
+        {
+            hm.put(A1[i],hm.get(A1[i])+1);
+        }
+        else
+        {
+            hm.put(A1[i],1);
+        }
+    }
+    int x[] = new int[n];
+    int k=0;
+    for (int i=0;i<m;i++)
+    {
+        if(hm1.containsKey(A2[i]))
+        {
+            hm1.put(A2[i],hm1.get(A2[i])+1);
+        }
+        else
+        {
+            hm1.put(A2[i],1);
+        }
+        if(hm.containsKey(A2[i]))
+        {
+            for(int j=0;j<hm.get(A2[i]);j++,k++)
+            {
+                x[k] = A2[i];
+            }    
+        }
+        
+    }
+    
+    for(int i=0;i<n;i++)
+    {
+        if(hm1.containsKey(A1[i]))
+        {
+            A1[i]=0;
+        }
+    }
+    Arrays.sort(A1);
+    for(int i=0;i<n;i++)
+    {
+        if(x[i]!=0)
+        {
+            A1[i]=x[i];
+        }
+    }
+}

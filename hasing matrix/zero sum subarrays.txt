@@ -1,0 +1,31 @@
+zero sum subarrays
+my soln:already concept seen before
+
+
+public static int findSubarray(int[] arr ,int n) 
+{
+    //Your code here
+    HashMap<Integer,Integer> hm = new HashMap<Integer,Integer>();
+    int sum=0;
+    int c=0;
+    for(int i=0;i<n;i++)
+    {
+        sum+=arr[i];
+        if(sum==0)
+        {
+           c++; 
+        }
+        if(hm.containsKey(sum))
+        {
+            hm.put(sum,hm.get(sum)+1);
+            c+=hm.get(sum);
+        }
+        else
+        {
+            hm.put(sum,0);
+            // hm.put(sum,hm.get(sum)+1);
+        }
+    }
+    return c;
+}
+    

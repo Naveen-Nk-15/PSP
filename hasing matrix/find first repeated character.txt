@@ -1,0 +1,44 @@
+/*package whatever //do not write package name here */
+
+my soln:just hashing
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		//code
+		Scanner in = new Scanner(System.in);
+		int n=in.nextInt();
+		
+		for(int ii=0;ii<n;ii++)
+		{
+    		HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
+    		
+    		String ss= in.next();
+    		char[] s = ss.toCharArray();
+    		int f=1;
+    		for (int i=0;i<ss.length();i++)
+    		{
+    		    if(!hm.containsKey(s[i]))
+    		    {
+    		        hm.put(s[i],0);
+    		    }
+    		    else
+    		    {
+    		        System.out.println(s[i]);
+    		        f=0;
+    		        break;
+    		    }
+    		}
+    		if(f==1)
+    		{
+    		    System.out.println("-1");
+    		}
+		    
+		}
+		
+	}
+}

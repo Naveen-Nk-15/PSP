@@ -1,0 +1,36 @@
+subarrays with equa; 0 and 1
+
+soln:copied:understood type approach
+
+
+class countsubArray
+{
+    // arr[] : the input array
+    // N : size of the input array
+    
+    // return the number of subarrays with equal 0s and 1s
+    static int countSubarrWithEqualZeroAndOne(int a[], int n)
+    {
+        // add your code here
+         HashMap<Integer,Integer> hm = new HashMap<>();
+        int sum =0;
+	       int flag=0;
+	       for(int i=0;i<n;i++){
+	           if(a[i] == 0){
+	               a[i] =-1;
+	           }
+	           sum = sum+a[i];
+	           if(sum == 0){
+	               flag++;
+	           }
+	           if(hm.containsKey(sum))
+	           {
+	               flag += hm.get(sum);
+	               hm.put(sum,hm.get(sum)+1);
+	           }
+	           if(!hm.containsKey(sum))
+	           hm.put(sum,1);
+	           	       }
+	       return flag;
+    }
+}

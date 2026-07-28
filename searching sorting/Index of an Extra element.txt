@@ -1,0 +1,28 @@
+Index of an extra element
+used gfg:
+
+
+
+
+class GfG {
+    public int findExtra(int a[], int b[], int n) {
+        // add code here.
+        int l=0;
+        int r=n-2;
+        int res=n-1;
+        while(l<=r)
+        {
+            int mid= (l+r)/2;
+            if(a[mid]==b[mid])
+            {
+                l= mid+1;
+            }
+            else
+            {
+                res=mid;
+                r=mid-1;
+            }
+        }
+        return res;
+    }
+}

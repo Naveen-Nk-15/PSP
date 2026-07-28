@@ -1,0 +1,53 @@
+boolean matrix problem
+logic : here we just do print logic hence if a element is 1 entire row and column should be 1
+so initialize its row's 1st element and column's 1st element as 1 while printing check its rows start and columns strt value 
+either of them is 1 then resullt is 1 or both are zero then the result is 0
+
+gg link:https://www.geeksforgeeks.org/a-boolean-matrix-question/     
+antha solution onum purila athan linku kudthruku poi paathukanga
+
+#include <stdio.h>
+int main() {
+	//code
+	int num_of_test_cases,
+	rows=0,
+	cols=0;
+	scanf("%d",&num_of_test_cases);
+	for(int i=0;i<num_of_test_cases;i++)
+	{
+	    scanf("%d",&rows);
+	    scanf("%d",&cols);
+	    int arr[rows][cols] ;
+	    for(int k=0;k<rows;k++)
+	    {
+	        for(int l=0;l<cols;l++)
+	        {  
+	            int input;
+	            scanf("%d",&input);
+	            arr[k][l]=0;
+	            if(input)
+	            {
+                    arr[0][l]=1;
+                    arr[k][0]=1;
+                }
+	          
+	        }
+	    }
+	    for(int k=0;k<rows;k++)
+	   {
+            for(int l=0;l<cols;l++)
+            {
+                if(arr[0][l]||arr[k][0])
+                {
+                    printf("1 ");
+                }
+                else
+                {
+                    printf("0 ");
+                }
+            }
+            printf("\n");
+	   }
+	}
+	return 0;
+}

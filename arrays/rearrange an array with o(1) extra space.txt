@@ -1,0 +1,22 @@
+learned and used the same logic from previous problem 
+
+my soln:
+      
+  static void arrange(long arr[], int n)
+    {
+        // your code here
+        int max=n;
+        for (int i=0;i<n;i++)
+        {
+            int ind=(int)arr[i];
+            if(ind>n-1)
+            {
+                ind=ind/max;
+            }
+            arr[i]+=(arr[ind]%max )*max;
+        }
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=arr[i]/max;
+        }
+    }

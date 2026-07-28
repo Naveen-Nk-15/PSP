@@ -1,0 +1,100 @@
+Longest consequtive subsequence
+
+Mysoln:hint used:all condition satisfied
+
+
+class Subseq
+{   
+    // arr[] : the input array
+    // N : size of the array arr[]
+    
+    // return the length of the longest subsequene of consecutive integers
+	static int findLongestConseqSubseq(int arr[], int n)
+	{
+	   // add your code here
+	   HashMap <Integer,Integer> hm = new HashMap<Integer,Integer>();
+	   for(int i=0;i<n;i++)
+	   {
+	       if(hm.containsKey(arr[i]))
+	       {
+	           hm.put(arr[i],hm.get(arr[i])+1);
+	       }
+	       else
+	       {
+	           hm.put(arr[i],1);
+	       }
+	   }
+	   int maxc=0;
+	   int c=0;
+	   for(int i=0;i<n;i++)
+	   {
+	       if(hm.get(arr[i])!=0)
+	       {
+	            c=1;
+    	       int k=arr[i]-1;
+    	       //System.out.println(arr[i]+"1st");
+    	       hm.put(arr[i],0);
+    	       while(hm.containsKey(k) && hm.get(k)!=0)
+    	       {
+    	           hm.put(k,0);
+    	           c++;
+    	           k--;
+    	           //System.out.println(k);
+    	           
+    	       }
+    	       k=arr[i]+1;
+    	       while(hm.containsKey(k) && hm.get(k)!=0)
+    	       {
+    	           hm.put(k,0);
+    	           c++;
+    	           k++;
+    	           //System.out.println(k);
+    	           
+    	       }
+    	       if(c>maxc)
+    	       {
+    	           maxc=c;
+    	       } 
+    	           
+	       }
+	   }
+	   return maxc;
+	}
+}
+
+
+
+
+
+gfg soln:
+
+
+class Subseq
+{   
+    // Function to find Longest Consecutive Subsequence
+	static int findLongestConseqSubseq(int a[], int n)
+	{
+	    // HashSet to store numbers
+		HashSet<Integer> hs = new HashSet<Integer>();
+		int ans = 0;
+		
+		// Adding elements to hash
+		for(int i=0; i<n; i++)
+			hs.add(a[i]);
+		
+		for(int i=0; i<n; i++)
+		{
+			if(!hs.contains(a[i]-1))
+			{
+				int j = a[i];
+				while(hs.contains(j))
+				{
+					j++;
+				}
+				if(ans < j-a[i])
+					ans = j-a[i];
+			}
+		}
+		return ans;
+	}
+}

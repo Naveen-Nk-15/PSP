@@ -1,0 +1,30 @@
+key pair 
+two pointer concept
+
+my soln:usedhint:all conditions satisfied
+
+
+class Solution {
+    boolean hasArrayTwoCandidates(int arr[], int n, int x) {
+        // code here
+        Arrays.sort(arr);
+        int l=0,r=n-1;
+        while(l<r)
+        {
+            int sum=arr[l]+arr[r];
+            if(sum == x)
+            {
+                return true;
+            }
+            else if(sum > x)
+            {
+                r--;
+            }
+            else
+            {
+                l++;
+            }
+        }
+        return false;
+    }
+}

@@ -1,0 +1,57 @@
+sorting element by frequency
+
+my soln :
+
+
+#include <stdio.h>
+
+int main() {
+	//code
+	int n=0;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{
+	    int k;
+	    scanf("%d",&k);
+	    int a[60]={0};
+	    int b[k];
+	    for(int i=0;i<k;i++)
+	    {
+	        scanf("%d",&b[i]);
+	        a[b[i]]++;
+	    }
+	    int l=0,r=k-1;
+	    for(int i=0;i<k;i++)
+	    {
+	        for(int j=0;j<k;j++)
+	        {
+	            if(a[b[i]]>a[b[j]])
+    	        {
+    	            int t=b[i];
+    	            b[i]=b[j];
+    	            b[j]=t;
+    	        }
+    	        else if(a[b[i]]==a[b[j]])
+    	        {
+    	            if(b[i]<b[j])
+    	            {
+    	                int t=b[i];
+    	                b[i]=b[j];
+    	                b[j]=t;
+    	            }
+    	        }
+	        }
+	    }
+	    for(int i=0;i<k;i++)
+	    {
+	       // printf("%d %d\n",b[i],a[b[i]]);
+	        while(a[b[i]]>0)
+	        {
+	            printf("%d ",b[i]);
+	            a[b[i]]--;
+	        }
+	    }
+	    printf("\n");
+	}
+	return 0;
+}

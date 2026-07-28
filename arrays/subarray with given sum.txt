@@ -1,0 +1,45 @@
+working in custom not in test run
+my soln:
+
+
+#include <stdio.h>
+
+int main() {
+	//code
+	int n;
+	scanf("%d",&n);
+	for(int i=0;i<n;i++)
+	{
+	    int k,sum;
+	    int c=1,p=0,s=0;
+	    scanf("%d %d",&k,&sum);
+	    int a[k];
+	    for(int j=0;j<k;j++)
+	    {
+	        scanf("%d",&a[j]);
+	    }
+	    s=a[0];
+	    
+	    while(c<n&&p<n&&c!=p)
+	    {
+	        if(s<sum)
+	        {
+	            s=s+a[c++];
+	        }
+	        else if(s>sum)
+	        {
+	            s=s-a[p++];
+	        }
+	        else
+	        {
+	            printf("%d %d\n",++p,c);
+	            p=0;c=0;
+	        }
+	    }
+	    if(s!=sum)
+	    {
+	        printf("-1\n");
+	    }
+	}
+	return 0;
+}

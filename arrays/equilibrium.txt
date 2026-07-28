@@ -1,0 +1,47 @@
+time complexity o(n) and space efficient
+my soln:
+class EquilibriumPoint {
+
+    
+    public static int equilibriumPoint(long a[], int n) {
+
+        // Your code here
+    long right_value = a[n-1];
+    long left_value =a[0];
+    int l=0,r=n-1;
+    while( !(r==l) && (r>l))
+    {
+        if(left_value == right_value)
+        {
+            r--;
+            l++;
+            left_value=left_value+a[l];
+            right_value = right_value+a[r];
+            // System.out.println(right_value+"inside equal");
+        }
+        else if(right_value>left_value)
+        {
+            l++;
+            left_value=left_value+a[l];
+        }
+        else
+        {
+            r--;
+            right_value = right_value+a[r];
+            
+            // System.out.println(right_value+"right");
+        }
+    }
+    // System.out.println(right_value);
+    // System.out.println(left_value);
+    if(right_value==left_value && n!=2)
+    {
+         return l+1;
+    }
+    else
+    {
+        return -1;    
+    }
+    
+    }
+}

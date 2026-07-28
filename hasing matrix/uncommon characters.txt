@@ -1,0 +1,48 @@
+uncommon characters
+
+my soln:my kind of hashing
+
+use char - 'a' to minimise array
+
+
+class Solution
+{
+    String UncommonChars(String A, String B)
+    {
+        // code here
+        String res="";
+        int f=1;
+        int arr[] = new int[128];
+        int brr[] = new int[128];
+        char a[] = A.toCharArray();
+        char b[] = B.toCharArray();
+        for(int i=0;i<a.length;i++)
+        {
+            if(arr[a[i]]==0)
+            arr[a[i]]++;
+        }
+        for(int i=0;i<b.length;i++)
+        {
+            if(brr[b[i]]==0)
+            brr[b[i]]++;
+        }
+        for(int i=0;i<128;i++)
+        {
+            if(arr[i]==1 && brr[i]==0)
+            {
+                f=0;
+                res=res+(char)i;
+            }
+            else if(arr[i]==0 && brr[i]==1)
+            {
+                f=0;
+                res=res+(char)i;
+            }
+        }
+        if(f==1)
+        {
+            return "-1";
+        }
+        return res;
+    }
+}

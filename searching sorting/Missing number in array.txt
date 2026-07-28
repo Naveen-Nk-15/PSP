@@ -1,0 +1,21 @@
+already done : My soln:
+
+
+
+
+
+class Solution {
+    int MissingNumber(int array[], int n) {
+        // Your Code Here
+        int xor=0,xorn=0;
+        for(int i=0;i<n-1;i++)
+        {
+            xor=xor^array[i];
+        }
+        for(int i=0;i<n;i++)
+        {
+            xorn=xorn^(i+1);
+        }
+        return xor^xorn;
+    }
+}

@@ -1,0 +1,30 @@
+match specific pattern
+solution copied:learned encoding style
+
+
+public static String encodeString(String str)
+	{
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		String res = "";
+		int i = 0;
+
+		for (char ch : str.toCharArray())
+		{
+			if (!map.containsKey(ch))
+			    map.put(ch, i++);
+	        res += String.valueOf(map.get(ch));
+		}
+		return res;
+	}
+
+
+	public static ArrayList<String> findMatchedWords(ArrayList<String> dict, String pattern)
+	{
+		int len = pattern.length();
+		String hash = encodeString(pattern);
+		 ArrayList<String> res = new ArrayList<String>();
+		  for (int i = 0;i < dict.size();i++)
+    	    if (dict.get(i).length() == len && hash.equals(encodeString(dict.get(i))))
+    		   res.add(dict.get(i));
+		return res;
+	}
