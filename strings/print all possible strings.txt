@@ -1,0 +1,43 @@
+print all possible strings
+
+copied:
+
+
+class GfG
+{
+    void util(ArrayList<String> arr, String str, String buff, int i, int j, int n)
+	{
+		if(i==n )
+        {
+            //buff[j]='\0';
+            arr.add(buff);
+            return;
+        }
+
+        //buff[j]=str[i];
+		buff = buff+String.valueOf(str.charAt(i));
+        util(arr,str,buff,i+1,j+1,n);
+		
+		buff = buff.substring(0,j)+" ";
+		buff = buff+String.valueOf(str.charAt(i));
+		util(arr,str,buff,i+1,j+2,n);
+
+        //or space
+        //buff[j]=' ';
+        //buff[j+1]=str[i];
+        //util(str,buff,i+1,j+2,n);
+	}
+	ArrayList<String> spaceString(String str)
+	{
+		//char arr[] = str.toCharArray();
+		int n = str.length();
+		//char buf[] = new char[2*n - 1];
+		//buf = buf.concat(str.charAt(0));
+		//buf[0] = arr[0];
+		String buf = "";
+		ArrayList<String> arr = new ArrayList<String>();
+		buf = buf+String.valueOf(str.charAt(0));
+		util(arr,str, buf, 1, 1, n);
+		return arr;
+	}
+}

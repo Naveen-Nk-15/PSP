@@ -1,0 +1,34 @@
+Anagram 
+my soln:
+
+
+class Anagram{    
+    /*  Function to check if two strings are anagram
+    *   a, b: input string
+    */
+    public static boolean isAnagram(String A,String B)
+    {
+        
+        // Your code here
+        int a[] = new int[26];
+        int b[] = new int[26];
+        char s1[] = A.toCharArray();
+        char s2[] = B.toCharArray();
+        for(int i=0;i<s1.length;i++)
+        {
+            a[s1[i]-'a']++;
+        }
+        for(int i=0;i<s2.length;i++)
+        {
+            b[s2[i]-'a']++;
+        }
+        for(int i=0;i<26;i++)
+        {
+            if(a[i]!=b[i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}

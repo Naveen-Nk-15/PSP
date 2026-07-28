@@ -1,0 +1,25 @@
+reverse words in a given string
+
+my soln:
+
+
+
+class Solution {
+    String reverseWords(String S) {
+        // code here 
+        String a[] = S.split("\\.");
+        for(int i=0,j=a.length-1;i<a.length/2;i++,j--)
+        {
+            String t;
+            t=a[i];
+            a[i]=a[j];
+            a[j]=t;
+        }
+        String res="";
+        for(int i=0;i<a.length-1;i++)
+        {
+            res=res+a[i]+".";
+        }
+        return res+a[a.length-1];
+    }
+}

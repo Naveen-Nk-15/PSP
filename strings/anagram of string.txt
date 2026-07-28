@@ -1,0 +1,30 @@
+anagram of string just hash it
+my soln:
+
+
+
+class GfG
+{
+	public int remAnagrams(String s,String S1)
+        {
+        //add code here.
+            int res=0;
+            int c1[] = new int[26];
+            int c2[] = new int[26];
+            char s1[] = s.toCharArray();
+            char s2[] = S1.toCharArray();
+            for(int i=0;i<s1.length;i++)
+            {
+                c1[s1[i]-'a']++;
+            }
+            for(int i=0;i<s2.length;i++)
+            {
+                c2[s2[i]-'a']++;
+            }
+            for(int i=0;i<26;i++)
+            {
+                res+=Math.abs(c1[i]-c2[i]);
+            }
+            return res;
+        }
+}

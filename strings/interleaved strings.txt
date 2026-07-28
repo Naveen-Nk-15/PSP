@@ -1,0 +1,74 @@
+interleaved strings
+
+mysoln: not all case passed
+
+class GfG{
+	public boolean isInterLeave(String A,String B,String C)
+	{
+        //Your code here
+        char a[] = A.toCharArray();
+        char b[] = B.toCharArray();
+        char c[] = C.toCharArray();
+        int i=0;
+        int j=0;
+        int k=0;
+        int n=a.length;
+        int m=b.length;
+        if(n+m!=c.length)
+        {
+            return false;
+        }
+        while(i<n || j<m)
+        {
+            int f=0;
+            if(i<n && a[i]==c[k])
+            {
+                i++;
+                k++;
+                f=1;
+            }
+            if(j<m && b[j]==c[k])
+            {
+                j++;
+                k++;
+                f=1;
+            }
+            if(f==0)
+            {
+                return false;
+            }
+        }
+        // System.out.println(i+" "+n+" "+j+" "+m);
+        if(i==n && j==m)
+        {
+            return true;
+        }
+        return false;
+	}
+}
+
+
+
+gfg soln
+
+
+
+def check(A, B, C, k, i, j):
+    if(k==len(C)):
+        return True
+    if(i==len(A) and j==len(B)):
+        return True
+    flag=False
+    if(i<len(A) and C[k]==A[i]):
+        flag=check(A, B, C, k+1, i+1, j)
+    if(flag):
+        return True
+    if(j<len(B) and C[k]==B[j]):
+        flag=check(A, B, C, k+1, i, j+1)
+    if(flag):
+        return True
+    return False
+
+def isInterleave(A, B, C):
+    # Code here
+    return check(A, B, C, 0, 0, 0)

@@ -1,0 +1,20 @@
+check if string is rotated by two places
+
+my soln:
+
+class Rotation{
+    public static boolean isRotated(String s1, String s2){
+        
+        // Your code here
+        int x=s1.length()-1;
+        if(x<2)
+        {
+            return s2.equals(s1);
+        }
+        String cw = s1.substring(2);
+        String acw = s1.substring(0,s1.length()-2);
+        cw = cw + s1.charAt(0) + s1.charAt(1);
+        acw = ""+ s1.charAt(x-1) + s1.charAt(x) + acw;
+        return s2.equals(cw) || s2.equals(acw);
+    }
+}

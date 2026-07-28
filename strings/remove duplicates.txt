@@ -1,0 +1,22 @@
+remove duplicates
+
+my soln
+
+
+class Solution {
+    String removeDups(String S) {
+        // code here
+        String res = "";
+        int a[] = new int[26];
+        char s[] = S.toCharArray();
+        for(int i=0;i<s.length;i++)
+        {
+            if(a[s[i]-'a']==0)
+            {
+                res=res+s[i];
+                a[s[i]-'a']++;
+            }
+        }
+        return res;
+    }
+}

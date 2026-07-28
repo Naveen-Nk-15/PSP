@@ -1,0 +1,21 @@
+convert to roman no
+
+my soln
+
+class GfG
+{
+    String convertToRoman(int n)
+    {
+	// Your code here
+	    String m[] = {"","M","MM","MMM"};
+	    String c[] = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+	    String t[] = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+	    String o[] = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
+	    String res = "";
+	   res=res+m[n/1000];
+	   res=res+c[(n%1000)/100];
+	   res=res+t[(n%100)/10];
+	   res=res+o[n%10];
+	   return res;
+    }
+}
